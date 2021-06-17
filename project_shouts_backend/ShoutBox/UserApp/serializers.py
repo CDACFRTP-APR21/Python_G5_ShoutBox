@@ -11,4 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
                     'Email',
                     'MobileNo',
                     'Password',
-                    'DateOfBirth')
+                    'Gender',
+                    'DateOfBirth',
+                    'ProfilePicURL',
+                    'DateCreated',
+                    'IsActive',
+                    )
