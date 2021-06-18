@@ -17,3 +17,4 @@ class UserSerializer(serializers.ModelSerializer):
                     'DateCreated',
                     'IsActive',
                     )
+
