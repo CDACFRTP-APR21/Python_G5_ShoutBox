@@ -1,0 +1,64 @@
+Tables.
+1.User
+	User_Id--PK
+	First_Name
+	Last_Name
+	User_Name
+	Email
+	Mob_No.
+	Password
+	Gender
+	Date_of_Birth
+	Profile_Picture_Url
+	Date_Created
+	Is_Active
+	
+2. Shouts
+	Shouts_Id
+	User_Id—Fk
+	Date_Created
+	Text_Data
+	Image_Url
+	Audio_Url
+	Video_Url
+	Is_Deleted 
+
+3. Friends
+	User1_Id
+	User2_Id
+	Status_Code(0-pending, 1-Accepted, 2 – Declined, 3 –Blocked, 4-Unfriend)
+	Action_User_id
+
+4. Comments
+	Comment_Id
+	Shouts_Id
+	User_Id
+	Comment_Content
+	Date_Created
+
+5. Reported_Shouts
+	Report_Id
+	Shouts_Id
+	User_Id
+	Reported_Date
+	Is_Deleted
+
+6 Admin
+	Admin_Id--PK
+	First_Name
+	Last_Name
+	User_Name
+	Email
+	Mob_No.
+	Password
+	Gender
+	Date_of_Birth
+	Profile_Picture_Url
+	Date_Created
+	Active
+
+
+
+
+
+pip install https://github.com/darklow/django-suit/tarball/v2

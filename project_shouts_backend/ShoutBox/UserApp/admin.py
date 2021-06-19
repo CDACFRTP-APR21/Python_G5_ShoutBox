@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.utils.html import format_html
 # Register your models here.
 
-from .models import Users
+from .models import Comments, Friends, ReportedShouts, Shouts, Users
 
 
 admin.site.site_header = "Admin DashBoad"
@@ -22,3 +22,7 @@ class UserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Users,UserAdmin)
+admin.site.register(Shouts)
+admin.site.register(Comments)
+admin.site.register(Friends)
+admin.site.register(ReportedShouts)
