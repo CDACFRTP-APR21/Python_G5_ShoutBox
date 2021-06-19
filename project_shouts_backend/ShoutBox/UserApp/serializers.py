@@ -1,3 +1,4 @@
+from UserApp.models import Comments
 from UserApp.models import Friends
 from UserApp.models import Shouts
 from rest_framework import serializers
@@ -41,3 +42,12 @@ class FriendSerializer(serializers.ModelSerializer):
                     'DateCreated'
                     )
 
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comments
+        fields = ('CommentId',
+                    'ShoutsId',
+                    'UserId',
+                    'CommentContent',
+                    'DateCreated'
+                    )

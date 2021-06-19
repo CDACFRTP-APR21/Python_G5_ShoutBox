@@ -9,5 +9,9 @@ urlpatterns=[
     url(r'^login',views.loginApi),
     url(r'^users',AutheticatedUser.as_view()),
     url(r'^shouts/([0-9]+)$',views.shoutsApi),
-    url(r'^friendShouts/([0-9]+)$',views.friendShoutsApi)
+    url(r'^friendShouts/([0-9]+)$',views.friendShoutsApi),
+    url(r'^friendsList/([0-9]+)$',views.friendsListApi),
+    url(r'^comments/([0-9]+)/([0-9]+)$',views.commentsApi),
+    url(r'^commentsUpload/([0-9]+)/([0-9]+)$',views.commentsUploadApi)
+    
 ]
