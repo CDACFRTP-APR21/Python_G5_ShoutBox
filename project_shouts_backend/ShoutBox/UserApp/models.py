@@ -11,6 +11,14 @@ GENDER_STATUS = (
     ('Female','Female')
 )
 
+FRIEND_STATUS=(
+    (0,'pending'),
+    (1,'Accepted'),
+    (2,'Declined'),
+    (3,'Blocked'),
+    (4,'Unfriend')
+)
+
 class Users(models.Model):
     UserId = models.AutoField(primary_key=True)
     UserName = models.CharField(max_length=100)
@@ -32,6 +40,39 @@ class Users(models.Model):
         if self.ProfilePicURL:
             return mark_safe('<img src="/media/%s" width="50" height="50" />' % (self.ProfilePicURL))
         else:
-            return mark_safe('<img src="/media/documents/default.jpg" width="50" height="50" />')
+            return mark_safe('<img src="/media/imgs/default.jpg" width="50" height="50" />')
     
     image_tag.short_description = 'Image'
+
+
+
+class Shouts(models.Model):
+    ShoutsId=models.AutoField(primary_key=True)
+    UserId=models.ForeignKey(Users, on_delete=models.CASCADE)
+    DateCreated =models.DateTimeField(blank=True, null=True, default=now)
+    TextContent=models.TextField(max_length=400)
+    File=models.FileField(blank=True, upload_to='media/imgs')
+    IsDeleted=models.BooleanField(null=True,default=False)
+	
+
+class Friends(models.Model):
+    UserId=models.ForeignKey(Users, on_delete=models.CASCADE,related_name='user_id')
+    FriendId=models.ForeignKey(Users, on_delete=models.CASCADE,related_name='friend_id')
+    StatusCode=models.IntegerField(choices=FRIEND_STATUS,default=4)
+    ActionUserId=models.ForeignKey(Users, on_delete=models.CASCADE,related_name='actionUser_id')
+    DateCreated=models.DateTimeField(blank=True, null=True, default=now)
+
+class Comments(models.Model):
+	CommentId=models.AutoField(primary_key=True)
+	ShoutsId=models.ForeignKey(Shouts, on_delete=models.CASCADE)
+	UserId=models.ForeignKey(Users, on_delete=models.CASCADE)
+	CommentContent=models.TextField(max_length=200)
+	DateCreated=models.DateTimeField(blank=True, null=True, default=now)
+
+class ReportedShouts(models.Model):
+	ReportId=models.AutoField(primary_key=True)
+	ShoutsId=models.ForeignKey(Shouts, on_delete=models.CASCADE)
+	UserId=models.ForeignKey(Users, on_delete=models.CASCADE)
+	ReportedDate=models.DateTimeField(blank=True, null=True, default=now)
+	IsDeleted=models.BooleanField(null=True,default=False)
+
