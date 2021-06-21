@@ -59,7 +59,8 @@ def userApi(request, UserId=0):
 
 
 class LoginView(APIView):
-    def post(self, request):
+    def post(self, request,format=None):
+        global  resulttoken
         email = request.data['Email']
         password = request.data['Password']
 
@@ -75,32 +76,36 @@ class LoginView(APIView):
         }
 
         token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')
-
+        print(token)
         response = Response()
 
         response.set_cookie(key='jwt', value=token, httponly=True)
         response.data = {
             'jwt': token
         }
+        resulttoken=token
         return response
 
 
 class UserView(APIView):
-
     def get(self, request):
-        token = request.COOKIES.get('jwt')
-
+        print('hi')
+        # token = request.COOKIES.get('jwt')
+        token=resulttoken
+        print(resulttoken)
+        # print(request.COOKIES)
         if not token:
-            raise AuthenticationFailed('Unauthenticated!')
+            return JsonResponse("user not found",safe=False)
+            # raise AuthenticationFailed('Unauthenticated!')
 
-        try:
-            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
+        payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        # except jwt.ExpiredSignatureError:
+        #     raise AuthenticationFailed('Unauthenticated!')
 
         user = Users.objects.filter(UserId=payload['id']).first()
         serializer = UserSerializer(user)
-        return Response(serializer.data)
+        # return Response(serializer.data)
+        return JsonResponse(serializer.data,safe=False)
 
 class LogoutView(APIView):
     def post(self, request):
