@@ -29,7 +29,8 @@ class ShoutSerializer(serializers.ModelSerializer):
                     'DateCreated',
                     'TextContent',
                     'File',
-                    'IsDeleted'
+                    'IsDeleted',
+                    'FileType'
                     )
 
 class FriendSerializer(serializers.ModelSerializer):

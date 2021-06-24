@@ -12,9 +12,9 @@ urlpatterns=[
     url(r'^shouts/([0-9]+)$',views.shoutsApi),
     url(r'^friendShouts/([0-9]+)$',views.friendShoutsApi),
     url(r'^friendsList/([0-9]+)$',views.friendsListApi),
-    url(r'^comments/([0-9]+)/([0-9]+)$',views.commentsApi),
-    url(r'^commentsUpload/([0-9]+)/([0-9]+)$',views.commentsUploadApi),
-    path(r'login', LoginView.as_view()),
-    path(r'users', UserView.as_view()),
+    url(r'^comments/([0-9,]+)/([0-9]+)$',views.commentsApi),
+    url(r'^commentsUpload/$',views.commentsUploadApi),
+    path('login', LoginView.as_view()),
+    path('users', UserView.as_view()),
     path('logout', LogoutView.as_view())
 ]

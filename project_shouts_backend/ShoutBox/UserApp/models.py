@@ -51,7 +51,8 @@ class Shouts(models.Model):
     UserId=models.ForeignKey(Users, on_delete=models.CASCADE)
     DateCreated =models.DateTimeField(blank=True, null=True, default=now)
     TextContent=models.TextField(max_length=400)
-    File=models.FileField(blank=True, upload_to='media/imgs')
+    File=models.CharField(max_length=400)
+    FileType=models.CharField(max_length=10)
     IsDeleted=models.BooleanField(null=True,default=False)
 	
 
