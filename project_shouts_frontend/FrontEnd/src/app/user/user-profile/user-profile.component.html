@@ -1,0 +1,196 @@
+<div class="container">
+  <div class="profile">
+    <div class="profile-header">
+      <div class="profile-header-cover">
+        <img
+          src="https://bootdey.com/img/Content/bg1.jpg"
+          alt="BackGround"
+          width="1296"
+          height="180"
+        />
+      </div>
+      <div class="profile-header-content">
+        <div class="profile-header-img">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar7.png"
+            alt=""
+          />
+        </div>
+        <ul class="profile-header-tab nav nav-tabs nav-tabs-v2">
+          <li class="nav-item">
+            <a (click)="GetAllShouts()" class="nav-link" data-toggle="tab">
+              <div class="nav-field">Shouts</div>
+              <div class="nav-value">{{ shouts.length }}</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="GetAllFriends()" class="nav-link" data-toggle="tab">
+              <div class="nav-field">Friends</div>
+              <div class="nav-value">{{ friends.length }}</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#profile-followers" class="nav-link" data-toggle="tab">
+              <div class="nav-field">Follow Request</div>
+              <div class="nav-value">1m</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#profile-media" class="nav-link" data-toggle="tab">
+              <div class="nav-field">Send Request</div>
+              <div class="nav-value">1,397</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-sidebar">
+        <div class="desktop-sticky-top">
+          <h4>{{ user.FirstName }} {{ user.LastName }}</h4>
+          <div class="font-weight-600 mb-3 text-muted mt-n2">
+            {{ user.Email }}
+          </div>
+          <p>
+            Principal UXUI Design &amp; Brand Architecture for Studio. Creator
+            of SeanTheme. Bringing the world closer together. Studied Computer
+            Science and Psychology at Harvard University.
+          </p>
+          <div class="mb-1">
+            <i class="fa fa-map-marker-alt fa-fw text-muted"></i> New York, NY
+          </div>
+          <div class="mb-3">
+            <i class="fa fa-link fa-fw text-muted"></i> seantheme.com/studio
+          </div>
+          <hr class="mt-4 mb-4" />
+        </div>
+      </div>
+
+      <div class="profile-content">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="tab-content p-0">
+              <div
+                class="tab-pane fade active show"
+                *ngIf="friendlist"
+                id="friendlist"
+              >
+                <div class="list-group">
+                  <div
+                    class="list-group-item d-flex align-items-center"
+                    *ngFor="let friend of friends"
+                  >
+                    <img
+                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                      alt=""
+                      width="50px"
+                      class="rounded-sm ml-n2"
+                    />
+                    <div class="flex-fill pl-3 pr-3">
+                      <div>
+                        <a href="#" class="text-dark font-weight-600">{{
+                          friend.UserName
+                        }}</a>
+                      </div>
+                      <div class="text-muted fs-13px">
+                        {{ friend.FirstName }} {{ friend.LastName }}
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-outline-primary">Unfriend</a>
+                  </div>
+                </div>
+                <div class="text-center p-3">
+                  <a href="#" class="text-dark text-decoration-none"
+                    >Show more <b class="caret"></b
+                  ></a>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade active show"
+                *ngIf="shoutlist"
+                id="shoutlist"
+              >
+                <div class="list-group">
+                  <div
+                    class="list-group-item d-flex align-items-center"
+                    *ngFor="let shout of shouts"
+                  >
+                    <div>
+                      <ul>
+                        <li>
+                          <!-- <div class="card card-white grid-margin"> -->
+                          <div class="timeline-item-header">
+                            <img
+                              [src]="user.ProfilePicURL"
+                              [alt]="user.FirstName"
+                            />
+                            <p>
+                              {{ user.FirstName }} {{ user.LastName
+                              }}<span> posted a shout</span>
+                            </p>
+
+                            <small>{{ shout.DateCreated }} </small>
+                            <p class="timeline-comment-text">
+                              {{ shout.TextContent }}
+                            </p>
+                            <video
+                              [src]="shout.File"
+                              *ngIf="shout.FileType == 'video'"
+                              controls
+                            ></video>
+                            <audio
+                              [src]="shout.File"
+                              *ngIf="shout.FileType == 'audio'"
+                              controls
+                            ></audio>
+                            <div class="shouts">
+                              <img
+                                [src]="shout.File"
+                                *ngIf="shout.FileType == 'image'"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="timeline-options">
+                            <a href="#"
+                              ><i class="fa fa-comment"></i> Comment (4)</a
+                            >
+                          </div>
+                          <div *ngFor="let comment of user_comments">
+                            <div *ngIf="comment.ShoutsId == shout.ShoutsId">
+                              <div class="timeline-comment">
+                                <div class="timeline-comment-header">
+                                  <img [src]="comment.ProfilePicURL" alt="" />
+
+                                  <p>
+                                    {{ comment.FirstName }}{{ comment.LastName
+                                    }}<small>{{ comment.DateCreated }}</small>
+                                  </p>
+                                </div>
+
+                                <p class="timeline-comment-text">
+                                  {{ comment.CommentContent }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- </div> -->
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center p-3">
+                  <a href="#" class="text-dark text-decoration-none"
+                    >Show more <b class="caret"></b
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

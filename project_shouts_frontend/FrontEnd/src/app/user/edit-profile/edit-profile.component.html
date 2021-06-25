@@ -1,0 +1,306 @@
+<div class="container">
+  <div class="profile-page tx-13">
+    <div class="col-12 grid-margin">
+      <div class="profile-header">
+        <div class="cover">
+          <div class="gray-shade"></div>
+
+          <!-- <img src="../../assets/back3.jpg" alt="profile cover" /> -->
+
+          <img
+            src="https://bootdey.com/img/Content/bg1.jpg"
+            alt="BackGround"
+            width="1296"
+            height="200"
+          />
+
+          <div
+            class="cover-body d-flex justify-content-between align-items-center"
+          >
+            <div class="image">
+              <!-- <img
+                class="profile-pic"
+                src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                alt="profile"
+              /> -->
+
+              <span class="profile-name text-white">Amiah Burton</span>
+            </div>
+
+            <div class="d-none d-md-block">
+              <button class="btn btn-white btn-icon-text btn-edit-profile">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-edit btn-icon-prepend"
+                  class="text-white"
+                >
+                  <path
+                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  ></path>
+
+                  <path
+                    d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                  ></path>
+                </svg>
+
+                <a href="/editprofile" class="text-white"> Edit profile</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row gutters">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="account-settings">
+              <div class="user-profile">
+                <div class="user-avatar">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                    alt="Maxwell Admin"
+                  />
+                </div>
+                <button type="button" (click)="uploadImage()">
+                  Upload Image
+                </button>
+                <h5 class="user-name">{{ user.UserName }}</h5>
+                <h6 class="user-email">{{ user.Email }}</h6>
+              </div>
+              <div class="about">
+                <h5 class="mb-2 text-primary">About</h5>
+                <p>
+                  I'm {{ user.UserName }}. Full Stack Designer I enjoy creating
+                  user-centric, delightful and human experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        <h1>Edit Profile</h1>
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h6 class="mb-3 text-primary">Personal Details</h6>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="UserName">User Name</label>
+                  <input
+                    type="text"
+                    class="form-control text-primary"
+                    id="UserName"
+                    minlength="4"
+                    placeholder="Enter user name"
+                    [(ngModel)]="user.UserName"
+                    #UserName="ngModel"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      UserName.invalid && (UserName.dirty || UserName.touched)
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="UserName.errors?.required">
+                      UserName is required.
+                    </div>
+                    <div *ngIf="UserName.errors?.minlength">
+                      UserName requires 4 characters.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="FirstName">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control text-primary"
+                    id="FirstName"
+                    placeholder="Enter FirstName"
+                    [(ngModel)]="user.FirstName"
+                    #FirstName="ngModel"
+                    [pattern]="firstnamepattern"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      FirstName.invalid &&
+                      (FirstName.dirty || FirstName.touched)
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="FirstName.errors?.required">
+                      FirstName is required.
+                    </div>
+                    <div *ngIf="FirstName.errors?.pattern">
+                      Please Enter Valid data.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="LastName">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control text-primary"
+                    id="LastName"
+                    placeholder="Enter last name"
+                    [(ngModel)]="user.LastName"
+                    #LastName="ngModel"
+                    required
+                    [pattern]="lastnamepattern"
+                  />
+                  <div
+                    *ngIf="
+                      LastName.invalid && (LastName.dirty || LastName.touched)
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="LastName.errors?.required">
+                      LastName is required.
+                    </div>
+                    <div *ngIf="LastName.errors?.pattern">
+                      Please Enter Valid data.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control text-primary"
+                    id="Email"
+                    placeholder="Enter email ID"
+                    [(ngModel)]="user.Email"
+                    #Email="ngModel"
+                    [pattern]="emailpattern"
+                    required
+                  />
+                  <div
+                    *ngIf="Email.invalid && (Email.dirty || Email.touched)"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="Email.errors?.required">Email is required.</div>
+                    <div *ngIf="Email.errors?.pattern">
+                      Please Enter Valid data
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="MobileNo">Phone</label>
+                  <input
+                    type="number"
+                    class="form-control text-primary"
+                    id="MobileNo"
+                    placeholder="Enter phone number"
+                    [(ngModel)]="user.MobileNo"
+                    #MobileNo="ngModel"
+                    required
+                    [pattern]="phone"
+                  />
+                  <div
+                    *ngIf="
+                      MobileNo.invalid && (MobileNo.dirty || MobileNo.touched)
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="MobileNo.errors?.required">
+                      MobileNo is required.
+                    </div>
+                    <div *ngIf="MobileNo.errors?.pattern">
+                      Mobile Number should be 10 digit.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Password">Password</label>
+                  <input
+                    type="password"
+                    class="form-control text-primary"
+                    id="Password"
+                    placeholder="Enter Password"
+                    [(ngModel)]="user.Password"
+                    #Password="ngModel"
+                    required
+                  />
+                  <div
+                    *ngIf="
+                      Password.invalid && (Password.dirty || Password.touched)
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="Password.errors?.required">
+                      Password is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Gender">Gender</label>
+                  <select
+                    id="Gender"
+                    class="form-control text-primary"
+                    [(ngModel)]="user.Gender"
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="DateOfBirth">Date of Birth</label>
+                  <input
+                    type="date"
+                    class="form-control text-primary"
+                    id="DateOfBirth"
+                    placeholder="Enter DateOfBirth"
+                    [(ngModel)]="DateOfBirth"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row gutters"> -->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="text-right">
+                <button
+                  type="button"
+                  id="submit"
+                  name="submit"
+                  class="btn btn-primary"
+                  (click)="updateUser()"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

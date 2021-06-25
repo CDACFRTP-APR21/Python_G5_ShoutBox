@@ -1,0 +1,649 @@
+<br />
+
+<div class="container">
+  <div class="profile-page tx-13">
+    <div class="col-12 grid-margin">
+      <div class="profile-header">
+        <div class="cover">
+          <div class="gray-shade"></div>
+
+          <!-- <img src="../../assets/back3.jpg" alt="profile cover" /> -->
+
+          <img
+            src="https://bootdey.com/img/Content/bg1.jpg"
+            alt="BackGround"
+            width="1296"
+            height="200"
+          />
+
+          <div
+            class="cover-body d-flex justify-content-between align-items-center"
+          >
+            <div class="image">
+              <img
+                class="profile-pic"
+                src="/assets/image/img1.jpg"
+                alt="profile"
+              />
+              <span class="profile-name text-white">{{ user.UserName }}</span>
+            </div>
+
+            <div class="d-none d-md-block">
+              <button class="btn btn-white btn-icon-text btn-edit-profile">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-edit btn-icon-prepend"
+                  class="text-white"
+                >
+                  <path
+                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  ></path>
+
+                  <path
+                    d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                  ></path>
+                </svg>
+
+                <a href="/editprofile" class="text-white"> Edit profile</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+
+  <div class="container">
+    <div class="page-inner no-page-title">
+      <!-- start page main wrapper -->
+
+      <div id="main-wrapper">
+        <div class="row">
+          <div class="col-lg-5 col-xl-3">
+            <div class="card card-white grid-margin">
+              <div class="header-links">
+                <ul class="links align-items-center mt-3 mt-md-0">
+                  <li
+                    class="
+                      header-link-item
+                      ml-3
+                      pl-3
+                      border-left
+                      d-flex
+                      align-items-center
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-user mr-1 icon-md"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      ></path>
+
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block" href="userprofile"
+                      >My Profile</a
+                    >
+                  </li>
+                  <br />
+                  <li class="header-link-item d-flex align-items-center active">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-columns mr-1 icon-md"
+                    >
+                      <path
+                        d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"
+                      ></path>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block" href="#">Timeline</a>
+                  </li>
+                  <br />
+
+                  <li
+                    class="
+                      header-link-item
+                      ml-3
+                      pl-3
+                      border-left
+                      d-flex
+                      align-items-center
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-user mr-1 icon-md"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      ></path>
+
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block" href="#">About</a>
+                  </li>
+                  <br />
+                  <li
+                    class="
+                      header-link-item
+                      ml-3
+                      pl-3
+                      border-left
+                      d-flex
+                      align-items-center
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-users mr-1 icon-md"
+                    >
+                      <path
+                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                      ></path>
+
+                      <circle cx="9" cy="7" r="4"></circle>
+
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block" href="#"
+                      >Friends <span class="text-muted tx-12">3,765</span></a
+                    >
+                  </li>
+                  <br />
+                  <li
+                    class="
+                      header-link-item
+                      ml-3
+                      pl-3
+                      border-left
+                      d-flex
+                      align-items-center
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-image mr-1 icon-md"
+                    >
+                      <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block" href="#">Photos</a>
+                  </li>
+                  <br />
+                  <li
+                    class="
+                      header-link-item
+                      ml-3
+                      pl-3
+                      border-left
+                      d-flex
+                      align-items-center
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-video mr-1 icon-md"
+                    >
+                      <polygon points="23 7 16 12 23 17 23 7"></polygon>
+
+                      <rect
+                        x="1"
+                        y="5"
+                        width="15"
+                        height="14"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block" href="#">Videos</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 col-xl-6">
+            <div class="card card-white grid-margin">
+              <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+                  <div class="post">
+                    <textarea
+                      id="TextData"
+                      class="form-control"
+                      placeholder="Post"
+                      rows="4"
+                      name="TextData"
+                      [(ngModel)]="text"
+                      #TextData="ngModel"
+                    ></textarea>
+
+                    <div class="post-options">
+                      <input
+                        type="file"
+                        [(ngModel)]="fileData"
+                        (change)="onChange($event)"
+                      />
+                      <a href="#"><i class="fa fa-camera"></i></a>
+
+                      <a href="#"><i class="fas fa-video"></i></a>
+
+                      <a href="#"><i class="fa fa-music"></i></a>
+
+                      <button class="btn btn-outline-primary float-right">
+                        Post
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="profile-timeline">
+              <ul class="list-unstyled">
+                <li class="timeline-item">
+                  <div class="card card-white grid-margin">
+                    <div class="card-body" *ngFor="let user of user_shouts">
+                      <div class="timeline-item-header">
+                        <img
+                          [src]="user.ProfilePicURL"
+                          [alt]="user.FirstName"
+                        />
+                        <p>
+                          {{ user.FirstName }} {{ user.LastName
+                          }}<span> posted a shout</span>
+                        </p>
+
+                        <small>{{ user.DateCreated }} </small>
+                        <p class="timeline-comment-text">
+                          {{ user.TextContent }}
+                        </p>
+                        <video
+                          [src]="user.File"
+                          *ngIf="user.FileType == 'video'"
+                          controls
+                        ></video>
+                        <audio
+                          [src]="user.File"
+                          *ngIf="user.FileType == 'audio'"
+                          controls
+                        ></audio>
+                        <div class="shouts">
+                          <img
+                            [src]="user.File"
+                            *ngIf="user.FileType == 'image'"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="timeline-options">
+                        <a href="#"
+                          ><i class="fa fa-comment"></i> Comment (4)</a
+                        >
+                      </div>
+                      <div *ngFor="let comment of user_comments">
+                        <div *ngIf="comment.ShoutsId == user.ShoutsId">
+                          <div class="timeline-comment">
+                            <div class="timeline-comment-header">
+                              <img [src]="comment.ProfilePicURL" alt="" />
+
+                              <p>
+                                {{ comment.FirstName }}{{ comment.LastName
+                                }}<small>{{ comment.DateCreated }}</small>
+                              </p>
+                            </div>
+
+                            <p class="timeline-comment-text">
+                              {{ comment.CommentContent }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <textarea
+                        class="form-control"
+                        [attr.id]="user.FirstName"
+                        placeholder="comment"
+                        rows="2"
+                        [(ngModel)]="CommentContent"
+                      ></textarea>
+                      <p></p>
+                      <button
+                        class="btn btn-outline-primary float-right"
+                        (click)="shoutId(user.ShoutsId)"
+                      >
+                        comment
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <img src="../../../assets/image/img1_AXQ8EHH.jpg" alt="" />
+            <audio
+              src="../../../assets/audio/file_example_MP3_1MG_zSRNi0F.mp3"
+            ></audio>
+            <!-- <div class="timeline-item-header">
+                        <img
+                          src="C:/Users/nehalk/Downloads/Python_G5_ShoutBox-master (2)/Python_G5_ShoutBox-master/project_shouts_backend/ShoutBox/media/profilePics/default.jpg"
+                          alt=""
+                        />
+
+                        <p>Vikash smith <span>posted a status</span></p>
+
+                        <small>3 hours ago</small>
+                      </div>
+                    </div> -->
+            <!--                     
+
+                    <div class="timeline-item-post">
+                      <p>
+                        {{ user_shouts[0].FirstName }}
+                      </p>
+
+                      <div class="timeline-options">
+                        <a href="#"
+                          ><i class="fa fa-comment"></i> Comment (4)</a
+                        >
+                      </div>
+
+                      <div class="timeline-comment">
+                        <div class="timeline-comment-header">
+                          <img
+                            src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                            alt=""
+                          />
+
+                          <p>Jamara Karle <small>1 hour ago</small></p>
+                        </div>
+
+                        <p class="timeline-comment-text">
+                          Xullamco laboris nisi ut aliquip ex ea commodo
+                          consequat.
+                        </p>
+                      </div>
+
+                      <div class="timeline-comment">
+                        <div class="timeline-comment-header">
+                          <img
+                            src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                            alt=""
+                          />
+
+                          <p>Lois Anderson <small>3 hours ago</small></p>
+                        </div>
+
+                        <p class="timeline-comment-text">
+                          Coluptate velit esse cillum dolore eu fugiat nulla
+                          pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia.
+                        </p>
+                      </div>
+
+                      <textarea
+                        class="form-control"
+                        placeholder="Replay"
+                      ></textarea>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="timeline-item">
+                  <div class="card card-white grid-margin">
+                    <div class="card-body">
+                      <div class="timeline-item-header">
+                        <img
+                          src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                          alt=""
+                        />
+
+                        <p>Veema Walkeror <span>uploaded a photo</span></p>
+
+                        <small>7 hours ago</small>
+                      </div>
+
+                      <div class="timeline-item-post">
+                        <p>
+                          totam rem aperiam, eaque ipsa quae ab illo inventore
+                        </p>
+
+                        <img src="img/post-img01.jpg" alt="" />
+
+                        <div class="timeline-options">
+                          <a href="#"
+                            ><i class="fa fa-comment"></i> Comment (7)</a
+                          >
+                        </div>
+
+                        <div class="timeline-comment">
+                          <div class="timeline-comment-header">
+                            <img
+                              src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                              alt=""
+                            />
+
+                            <p>Memila moriya <small>1 hour ago</small></p>
+                          </div>
+
+                          <p class="timeline-comment-text">
+                            Explicabo Nemo enim ipsam voluptatem quia voluptas.
+                          </p>
+                        </div>
+
+                        <textarea
+                          class="form-control"
+                          placeholder="Replay"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div> -->
+
+            <div class="col-lg-12 col-xl-3">
+              <div class="card card-white grid-margin">
+                <div class="card-heading clearfix">
+                  <h4 class="card-title">Suggestions</h4>
+                </div>
+
+                <div class="card-body">
+                  <div class="team">
+                    <div class="team-member">
+                      <div class="online on"></div>
+
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                        alt=""
+                      />
+                    </div>
+
+                    <div class="team-member">
+                      <div class="online on"></div>
+
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                        alt=""
+                      />
+                    </div>
+
+                    <div class="team-member">
+                      <div class="online off"></div>
+
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-heading clearfix">
+                <h4 class="card-title">User Profile</h4>
+              </div>
+
+              <div class="card-body user-profile-card mb-3">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  class="user-profile-image rounded-circle"
+                  alt=""
+                />
+
+                <h4 class="text-center h6 mt-2">Lois Anderson</h4>
+
+                <p class="text-center small">UI/UX Designer</p>
+
+                <button class="btn btn-theme btn-sm">Follow</button>
+
+                <button class="btn btn-theme btn-sm">Message</button>
+              </div>
+
+              <hr />
+
+              <div class="card-heading clearfix mt-3">
+                <h4 class="card-title">Contact Information</h4>
+              </div>
+
+              <!-- <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-borderless mb-0 text-muted">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Email:</th>
+
+                      <td>addyour@emailhere</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Phone:</th>
+
+                      <td>(+44) 123 456 789</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Address:</th>
+
+                      <td>74 Guild Street 542B, Great North Town MT.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div> 
+
+            <div class="card card-white grid-margin">
+              <div class="card-heading clearfix">
+                <h4 class="card-title">Some Info</h4>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis architecto.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row -->
+            </div>
+
+            <!-- end page main wrapper -->
+
+            <div class="page-footer">
+              <p>Copyright © 2020 Evince All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+        <!-- </div>
+</div> -->
+      </div>
+      <!-- </div>
+    </div>
+  </div>
+</div> -->
+    </div>
+  </div>
+</div>

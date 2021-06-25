@@ -1,0 +1,275 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row gutters">
+    <form [formGroup]="myform" (ngSubmit)="registerNewUser()">
+      <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
+        <h1>Registration Form</h1>
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h6 class="mb-3 text-primary">Personal Details</h6>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="UserName">User Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="UserName"
+                    placeholder="Enter user name"
+                    formControlName="UserName"
+                    minlength="4"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.UserName?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="check?.UserName?.touched && check?.UserName?.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.UserName.errors?.required">
+                      User Name Field is required
+                    </div>
+                    <div *ngIf="check.UserName.errors?.minlength">
+                      UserName should be minimum 4 character
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="First_Name">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter first name"
+                    formControlName="FirstName"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.FirstName?.errors
+                    }"
+                  />
+
+                  <div
+                    *ngIf="
+                      check?.FirstName?.touched && check?.FirstName?.invalid
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.FirstName.errors?.required">
+                      First Name Field is required
+                    </div>
+                    <div *ngIf="check.FirstName.errors?.pattern">
+                      Please Enter Valid data
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="LastName">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="LastName"
+                    placeholder="Enter last name"
+                    formControlName="LastName"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.LastName?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="check?.LastName?.touched && check?.LastName?.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.LastName.errors?.required">
+                      Last Name Field is required
+                    </div>
+                    <div *ngIf="check.LastName.errors?.pattern">
+                      Please Enter Valid data
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="Email"
+                    placeholder="Enter email ID"
+                    formControlName="Email"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.Email?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="check?.Email?.touched && check?.Email?.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.Email.errors?.required">
+                      Email Field is required
+                    </div>
+                    <div *ngIf="check.Email.errors?.email">
+                      Please Enter Valid Email
+                    </div>
+                    <div *ngIf="check.Email.errors?.pattern">
+                      Please Enter Valid data
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="MobileNo">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="MobileNo"
+                    placeholder="Enter phone number"
+                    formControlName="MobileNo"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.MobileNo?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="check?.MobileNo?.touched && check?.MobileNo?.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.MobileNo?.errors?.required">
+                      Phone Number Field is required
+                    </div>
+
+                    <div *ngIf="check?.MobileNo?.errors?.pattern">
+                      Mobile Number Should be 10 digits
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Password">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="Password"
+                    placeholder="Enter Password"
+                    formControlName="Password"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.Password?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="check?.Password?.touched && check?.Password?.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.Password?.errors?.required">
+                      Password Field is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="ConfirmPassword">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="ConfirmPassword"
+                    placeholder="Enter Password again"
+                    formControlName="ConfirmPassword"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.ConfirmPassword?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      check?.ConfirmPassword?.touched &&
+                      check?.ConfirmPassword?.invalid
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.ConfirmPassword.errors?.required">
+                      Confirm Field Password is required
+                    </div>
+                    <div
+                      *ngIf="check?.Password != check?.ConfirmPassword"
+                      class="alert alert-danger"
+                    >
+                      Password and Confirm Password does not match.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="Gender">Gender</label>
+
+                  <select formControlName="Gender" class="form-control">
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                  <div
+                    *ngIf="check?.Gender?.touched && check?.Gender?.invalid"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.ConfirmPassword.errors?.required">
+                      Gender Field is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="DateOfBirth">Date of Birth</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="DateOfBirth"
+                    placeholder="Enter DateOfBirth"
+                    formControlName="DateOfBirth"
+                    [ngClass]="{
+                      'is-invalid': submitted && check?.DateOfBirth?.errors
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      check?.DateOfBirth?.touched && check?.DateOfBirth?.invalid
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="check.DateOfBirth.errors?.required">
+                      Date Of Birth Field is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="text-right">
+                    <button type="reset" class="btn btn-secondary">
+                      Cancel</button
+                    >&nbsp;
+                    <button
+                      type="submit"
+                      id="submit"
+                      name="submit"
+                      class="btn btn-primary"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

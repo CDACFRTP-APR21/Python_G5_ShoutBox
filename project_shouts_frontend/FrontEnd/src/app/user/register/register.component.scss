@@ -1,0 +1,41 @@
+body {
+  background-color: #dcdcdc;
+  margin-top: 20px;
+}
+h1 {
+  color: #596280;
+}
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e5e9f2;
+  border-radius: 0.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 15px 1px rgba(52, 40, 104, 0.08);
+}
+.form-control {
+  border: 1px solid #596280;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 0.825rem;
+
+  color: black;
+  margin: 10px;
+}
+label {
+  margin: 10px;
+}
+form {
+  padding-left: 280px;
+}
+.alert {
+  font-size: 12px;
+}
