@@ -11,4 +11,6 @@ export class Friends {
   ProfilePicURL!: any;
   UserName!: string;
   UserId!: number;
+  StatusCode!:number;
+  ActionUserId!:number;
 }

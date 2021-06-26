@@ -39,7 +39,14 @@ export class EditProfileComponent implements OnInit {
       this.user = data;
     });
   }
-
+  logoutUser()
+  {
+    this.userService.logoutUser(this.user).subscribe((data: any) => {
+      console.log(data);
+      this.router.navigate(['/login']);
+      
+    });
+  }
   updateUser() {
     console.log(this.user.UserName);
     this.userService

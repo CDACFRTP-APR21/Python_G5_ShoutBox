@@ -62,14 +62,14 @@ export class LoginComponent implements OnInit {
         }
       );
   }
-
+  
   getUser() {
     this.userService.getUser().subscribe((data: any) => {
       console.log('in userservice');
       console.log(data.UserId);
       console.log(data);
       sessionStorage.setItem('UserId', data.UserId);
-      this.router.navigate(['/userhome'], { queryParams: data });
+      this.router.navigate(['/userhome']);
     });
   }
 }

@@ -16,11 +16,13 @@ import { UserService } from 'src/app/user.service';
 export class UserProfileComponent implements OnInit {
   user: User = new User();
   friends: Friends[] = [];
+  sentRequest: Friends[] = [];
   shouts: Shouts[] = [];
   user_comments: Comments[] = [];
   shoutIdList: number[] = [];
   friendlist = false;
   shoutlist = false;
+  sentRequests=false;
   constructor(
     private friendService: FriendsService,
     private userService: UserService,
@@ -33,6 +35,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   GetAllFriends() {
+    this.sentRequests=false;
     this.shoutlist = false;
     this.friendlist = true;
     this.friendService
@@ -44,6 +47,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   GetAllShouts() {
+    this.sentRequests=false;
     this.friendlist = false;
     this.shoutlist = true;
     this.shoutService.GetShouts(this.user.UserId).subscribe(
@@ -83,4 +87,44 @@ export class UserProfileComponent implements OnInit {
       console.log(this.user.ProfilePicURL);
     });
   }
+  UpdateFriendRequest(FriendId:any,StatusCode:any)
+  {
+    this.friendService.UpdateFriendRequest(this.user.UserId,FriendId,StatusCode).subscribe((data:any)=>{
+    console.log(data);
+    if(StatusCode==3)
+    {
+      this.GetAllFriends();
+
+    }
+    else if (StatusCode==1)
+    {
+      this.GetAllFriends();
+
+    }
+    else if(StatusCode==2)
+    {
+      this.GetSentRequest();
+    }
+      
+    });
+  }
+
+  GetSentRequest() 
+  {
+    this.sentRequests=true;
+    this.friendlist = false;
+    this.shoutlist = false;
+    this.friendService.GetSentRequest(this.user.UserId).subscribe((data:any)=>{
+      data.forEach((item: Friends)=> {
+
+      if(item.StatusCode==0)
+      {
+        this.sentRequest.push(item);
+      }
+
+      });
+    });
+    console.log(this.sentRequest);
+  }
 }
+

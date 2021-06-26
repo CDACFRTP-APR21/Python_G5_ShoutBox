@@ -7,6 +7,7 @@ import { ShoutsService } from 'src/app/shouts.service';
 import { UserService } from 'src/app/user.service';
 import { UserTimeline } from 'src/app/models/user_timeline';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-home',
@@ -26,9 +27,12 @@ export class UserHomeComponent implements OnInit {
   shoutIdList: number[] = [];
   numberList: number[] = [1];
   UserId = sessionStorage.getItem('UserId');
+  
   constructor(
     private userService: UserService,
-    private commentsService: CommentsService
+    private commentsService: CommentsService,
+    private router:Router
+
   ) {}
   ngOnInit() {
     this.getUser();
@@ -74,6 +78,20 @@ export class UserHomeComponent implements OnInit {
       console.log(this.user.ProfilePicURL);
     });
   }
+  logoutUser()
+  {
+    this.userService.logoutUser(this.user).subscribe((data: any) => {
+      console.log(data);
+      this.router.navigate(['/login']);
+      
+    });
+    
+    
+    
+
+
+  }
+
   // this.commentsService.getComments().subscribe(
   //   (res: any) => {
   //     this.user_shouts = res;

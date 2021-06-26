@@ -2,8 +2,8 @@
 <div class="container">
   <div class="row gutters">
     <form [formGroup]="myform" (ngSubmit)="registerNewUser()">
-      <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
-        <h1>Registration Form</h1>
+      <div class="col-xl-10 col-lg-9 col-md-12 col-sm-12 col-12">
+       <i> <h1>Registration Form</h1></i>
         <div class="card h-100">
           <div class="card-body">
             <div class="row gutters">
@@ -196,7 +196,7 @@
                       Confirm Field Password is required
                     </div>
                     <div
-                      *ngIf="check?.Password != check?.ConfirmPassword"
+                      *ngIf="check?.Password != check?.ConfirmPasswsord"
                       class="alert alert-danger"
                     >
                       Password and Confirm Password does not match.
@@ -260,9 +260,11 @@
                       id="submit"
                       name="submit"
                       class="btn btn-primary"
+                      
                     >
                       Register
                     </button>
+
                   </div>
                 </div>
               </div>

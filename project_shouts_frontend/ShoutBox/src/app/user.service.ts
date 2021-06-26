@@ -47,6 +47,13 @@ export class UserService {
       this.httpOptions
     );
   }
+  public logoutUser(user1: any) {
+    return this.http.post(
+      'http://127.0.0.1:8000/logout',
+      JSON.stringify(user1),
+      this.httpOptions
+    );
+  }
 
   updateUser(UserId: any, data: any): Observable<any> {
     console.log(UserId);

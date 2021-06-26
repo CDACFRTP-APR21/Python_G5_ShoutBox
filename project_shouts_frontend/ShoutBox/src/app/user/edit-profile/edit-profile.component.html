@@ -6,27 +6,22 @@
           <div class="gray-shade"></div>
 
           <!-- <img src="../../assets/back3.jpg" alt="profile cover" /> -->
+<link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
 
           <img
             src="https://bootdey.com/img/Content/bg1.jpg"
             alt="BackGround"
-            width="1296"
+            width="1113"
             height="200"
           />
 
           <div
             class="cover-body d-flex justify-content-between align-items-center"
           >
-            <div class="image">
-              <!-- <img
-                class="profile-pic"
-                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                alt="profile"
-              /> -->
-
-              <span class="profile-name text-white">Amiah Burton</span>
-            </div>
-
+           
             <div class="d-none d-md-block">
               <button class="btn btn-white btn-icon-text btn-edit-profile">
                 <svg
@@ -75,16 +70,48 @@
                 <button type="button" (click)="uploadImage()">
                   Upload Image
                 </button>
-                <h5 class="user-name">{{ user.UserName }}</h5>
-                <h6 class="user-email">{{ user.Email }}</h6>
+                  <br/>
+                  <br>
+              
+                <h5 class="user-name">{{ user.FirstName }} {{user.LastName}}</h5>
+                <h6 class="user-email text-primary">{{ user.Email }}</h6>
               </div>
               <div class="about">
-                <h5 class="mb-2 text-primary">About</h5>
-                <p>
-                  I'm {{ user.UserName }}. Full Stack Designer I enjoy creating
-                  user-centric, delightful and human experiences.
-                </p>
+               
+                
+           
+                <ul>
+                <li class="header-link-item d-flex align-items-center active">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-columns mr-1 icon-md"
+                       
+                    >
+                      <path
+                        d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"
+                      ></path>
+                    </svg>
+
+                    <a class="pt-1px d-none d-md-block "style =" font-size:22px" href="/userhome">Timeline</a>
+                  </li>
+                  <br/>
+                
+                  <li class="header-link-item d-flex align-items-center active">
+                <i class="fa fa-power-off" style="font-size:22px"> </i>&nbsp;
+                  
+                  <a class="text-primary"  style =" font-size:22px" (click)="logoutUser()">Logout</a>
+                  </li>
+                  </ul>
               </div>
+              
             </div>
           </div>
         </div>
@@ -101,6 +128,7 @@
                 <div class="form-group">
                   <label for="UserName">User Name</label>
                   <input
+                  disabled
                     type="text"
                     class="form-control text-primary"
                     id="UserName"
@@ -186,6 +214,7 @@
                 <div class="form-group">
                   <label for="Email">Email</label>
                   <input
+                   disabled
                     type="email"
                     class="form-control text-primary"
                     id="Email"
@@ -271,18 +300,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="DateOfBirth">Date of Birth</label>
-                  <input
-                    type="date"
-                    class="form-control text-primary"
-                    id="DateOfBirth"
-                    placeholder="Enter DateOfBirth"
-                    [(ngModel)]="DateOfBirth"
-                  />
-                </div>
-              </div>
+              
             </div>
             <!-- <div class="row gutters"> -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

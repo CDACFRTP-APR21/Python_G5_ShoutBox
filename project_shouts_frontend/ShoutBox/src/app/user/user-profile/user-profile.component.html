@@ -1,21 +1,27 @@
 <div class="container">
   <div class="profile">
     <div class="profile-header">
-      <div class="profile-header-cover">
+     <div class="cover">
+      <div class="profile-header">
+      
         <img
           src="https://bootdey.com/img/Content/bg1.jpg"
           alt="BackGround"
-          width="1296"
-          height="180"
+          width="1115"
+          height="170"
         />
+        
       </div>
+     
+        </div>
       <div class="profile-header-content">
         <div class="profile-header-img">
           <img
-            src="https://bootdey.com/img/Content/avatar/avatar7.png"
-            alt=""
-          />
+            src="assets/images/ketki.jpg"
+            alt="Profile Picture"/> 
+          
         </div>
+        
         <ul class="profile-header-tab nav nav-tabs nav-tabs-v2">
           <li class="nav-item">
             <a (click)="GetAllShouts()" class="nav-link" data-toggle="tab">
@@ -36,22 +42,27 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#profile-media" class="nav-link" data-toggle="tab">
-              <div class="nav-field">Send Request</div>
-              <div class="nav-value">1,397</div>
+            <a (click)="GetSentRequest()" class="nav-link" data-toggle="tab">
+              <div class="nav-field">Sent Request</div>
+              <div class="nav-value">{{sentRequest.length}}</div>
             </a>
+          </li>
+           <li class="nav-item">
+          <a href="/userhome" class="nav-link" data-toggle="tab">
+              <div class="nav-field">Timeline</div>
+               
+          </a>
           </li>
         </ul>
       </div>
-    </div>
+      
 
     <div class="profile-container">
       <div class="profile-sidebar">
         <div class="desktop-sticky-top">
-          <h4>{{ user.FirstName }} {{ user.LastName }}</h4>
-          <div class="font-weight-600 mb-3 text-muted mt-n2">
-            {{ user.Email }}
-          </div>
+         <h5 class="user-name">{{ user.FirstName }} {{user.LastName}}</h5>
+                <h6 class="user-email text-primary">{{ user.Email }}</h6>
+                <br/>
           <p>
             Principal UXUI Design &amp; Brand Architecture for Studio. Creator
             of SeanTheme. Bringing the world closer together. Studied Computer
@@ -84,20 +95,24 @@
                     <img
                       src="https://bootdey.com/img/Content/avatar/avatar1.png"
                       alt=""
-                      width="50px"
+                      width="55px"
                       class="rounded-sm ml-n2"
-                    />
+                      height="55px"
+                    />&nbsp;&nbsp;
                     <div class="flex-fill pl-3 pr-3">
                       <div>
-                        <a href="#" class="text-dark font-weight-600">{{
+                      
+                        <h6>{{
                           friend.UserName
-                        }}</a>
+                        }}</h6>
                       </div>
                       <div class="text-muted fs-13px">
                         {{ friend.FirstName }} {{ friend.LastName }}
                       </div>
                     </div>
-                    <a href="#" class="btn btn-outline-primary">Unfriend</a>
+                    <a (click)="UpdateFriendRequest(friend.UserId,4)" class="btn btn-outline-primary">Unfriend</a>
+                    &nbsp; &nbsp;
+                    <a (click)="UpdateFriendRequest(friend.UserId,1)" class="btn btn-outline-danger">Block</a>
                   </div>
                 </div>
                 <div class="text-center p-3">
@@ -120,7 +135,7 @@
                       <ul>
                         <li>
                           <!-- <div class="card card-white grid-margin"> -->
-                          <div class="timeline-item-header">
+                          <div class="timeline-item-header ">
                             <img
                               [src]="user.ProfilePicURL"
                               [alt]="user.FirstName"
@@ -134,6 +149,7 @@
                             <p class="timeline-comment-text">
                               {{ shout.TextContent }}
                             </p>
+                            
                             <video
                               [src]="shout.File"
                               *ngIf="shout.FileType == 'video'"
@@ -145,7 +161,7 @@
                               controls
                             ></audio>
                             <div class="shouts">
-                              <img
+                              <img 
                                 [src]="shout.File"
                                 *ngIf="shout.FileType == 'image'"
                               />
@@ -160,19 +176,18 @@
                           <div *ngFor="let comment of user_comments">
                             <div *ngIf="comment.ShoutsId == shout.ShoutsId">
                               <div class="timeline-comment">
-                                <div class="timeline-comment-header">
+                                
                                   <img [src]="comment.ProfilePicURL" alt="" />
-
                                   <p>
-                                    {{ comment.FirstName }}{{ comment.LastName
-                                    }}<small>{{ comment.DateCreated }}</small>
+                                    {{ comment.FirstName }} {{ comment.LastName
+                                    }} <small>{{ comment.DateCreated }}</small>
                                   </p>
-                                </div>
-
+                               
                                 <p class="timeline-comment-text">
                                   {{ comment.CommentContent }}
                                 </p>
                               </div>
+                               
                             </div>
                           </div>
                           <!-- </div> -->
@@ -186,8 +201,48 @@
                     >Show more <b class="caret"></b
                   ></a>
                 </div>
+                
+              </div>
+              <div
+                class="tab-pane fade active show"
+                *ngIf="sentRequests"
+                id="sentRequests"
+              >
+                <div class="list-group">
+                  <div
+                    class="list-group-item d-flex align-items-center"
+                    *ngFor="let friend of sentRequest"
+                  >
+                    <img
+                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                      alt=""
+                      width="50px"
+                      class="rounded-sm ml-n2"
+                    />
+                    <div class="flex-fill pl-3 pr-3">
+                      <div>
+                        <h6 class="text-dark font-weight-600">&nbsp;&nbsp;{{
+                          friend.UserName
+                        }}</h6>
+
+                      </div>
+                      <div class="text-muted fs-13px">
+                      &nbsp;
+                        {{ friend.FirstName }} {{ friend.LastName }}
+                      </div>
+                    </div>
+                    &nbsp; &nbsp;
+                    <a (click)="UpdateFriendRequest(friend.UserId,2)" class="btn btn-outline-danger">Cancel Request</a>
+                  </div>
+                </div>
+                <div class="text-center p-3">
+                  <a href="/userprofile" class="text-dark text-decoration-none"
+                    >Show more <b class="caret"></b
+                  ></a>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
