@@ -14,6 +14,10 @@ urlpatterns=[
     url(r'^friendsList/([0-9]+)$',views.friendsListApi),
     url(r'^comments/([0-9,]+)/([0-9]+)$',views.commentsApi),
     url(r'^commentsUpload/$',views.commentsUploadApi),
+    url(r'^showfriends/([0-9]+)$',views.friendRequestApi),
+    url(r'^updatefriendrequest/([0-9]+)/([0-9]+)/([0-9]+)$',views.friendRequestUpdateApi),
+    url(r'^deleteshout/([0-9]+)$',views.deleteShoutApi),
+    url(r'^deletecomment/([0-9]+)$',views.deleteCommentApi),
     path('login', LoginView.as_view()),
     path('users', UserView.as_view()),
     path('logout', LogoutView.as_view())

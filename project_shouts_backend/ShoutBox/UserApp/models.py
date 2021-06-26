@@ -13,9 +13,9 @@ GENDER_STATUS = (
 
 FRIEND_STATUS=(
     (0,'pending'),
-    (1,'Accepted'),
+    (1,'Blocked'),
     (2,'Declined'),
-    (3,'Blocked'),
+    (3,'Accepted'),
     (4,'Unfriend')
 )
 
